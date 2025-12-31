@@ -52,6 +52,7 @@
 **必需：**
 - `GH_USERNAME` - GitHub 用户名
 - `GH_PASSWORD` - GitHub 密码
+- `CLAW_CLOUD_URL` - `默认：https://eu-central-1.run.claw.cloud` 这个地址按自己的实际地址写
 
 **推荐：**
 - `TG_BOT_TOKEN` - Telegram Bot Token
