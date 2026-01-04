@@ -1,8 +1,8 @@
-name: ClawCloud 自动登录保活
+name: ClawCloud 自动登录保活 - 账号1
 
 on:
   schedule:
-    - cron: '17 00 */11 * *'  # UTC 00:17，每11天运行
+    - cron: '16 00 */11 * *'  # 北京时间 07:16，每11天运行
   workflow_dispatch:
 
 jobs:
@@ -25,13 +25,13 @@ jobs:
           playwright install chromium
           playwright install-deps
 
-      - name: 运行自动登录
+      - name: 运行自动登录 (账号1)
         env:
-          GH_USERNAME: ${{ secrets.GH_USERNAME }}
-          GH_PASSWORD: ${{ secrets.GH_PASSWORD }}
-          GH_SESSION: ${{ secrets.GH_SESSION }}
+          # 将 Secret_1 映射给脚本需要的变量名
+          GH_USERNAME: ${{ secrets.GH_USERNAME_1 }}
+          GH_PASSWORD: ${{ secrets.GH_PASSWORD_1 }}
+          GH_SESSION: ${{ secrets.GH_SESSION_1 }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
-          
         run: python scripts/auto_login.py
